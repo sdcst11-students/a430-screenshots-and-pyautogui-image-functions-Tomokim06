@@ -17,35 +17,43 @@ def main():
 
 def bonus():
     while True:
-        pyautogui.moveTo(380, 665)
-        x, y = pyautogui.position()
-        px = pyautogui.pixel(x, y)
-        print(px)
-
-        if px == (221, 136, 0):
-            print("good")
-        else:
-            pyautogui.moveTo(x, 136)
+        m = 0
+        while m < 21:
+            pyautogui.moveTo(380, 665)
             x, y = pyautogui.position()
             px = pyautogui.pixel(x, y)
-            if px == (136, 204, 68):
-                #move down collumn and keep looking
-            #else:
-                #buy building to next level
-                pyautogui.moveTo(1260,100)
-                pyautogui.moveTo(220, y)
-                x, y = pyautogui.position()
-                px = pyautogui.pixel(x, y)
-                if px == (85, 119, 255):
-                    #blue
-                    pyautogui.click()
-                    #keep trying new columns
-                if px == (52, 54, 56) or px == (31, 31, 31):
-                    #greys
-                    while px == (52, 54, 56) or px == (31, 31, 31):
-                        os.system("pause")
-                        
-        quit()
+
+            if px == (221, 136, 0):
+                #yellow ^^^
+                m = m+1
+                px = (x+45, y)
+                print("1")
+            else:
+                print(f"else{x}")
+                def column(x):
+                    pyautogui.moveTo(x, 136)
+                    x, y = pyautogui.position()
+                    px = pyautogui.pixel(x, y)
+                    if px == (136, 204, 68):
+                        #move down column and keep looking
+                    #else:
+                        #buy building to next level
+                        pyautogui.moveTo(1260,100)
+                        pyautogui.moveTo(220, y)
+                        x, y = pyautogui.position()
+                        px = pyautogui.pixel(x, y)
+                        if px == (85, 119, 255):
+                            #blue
+                            pyautogui.click()
+                            #keep trying new columns
+                        if px == (52, 54, 56) or px == (31, 31, 31):
+                            #greys
+                            while px == (52, 54, 56) or px == (31, 31, 31):
+                                #VVV  pause until grey turns blue  VVV
+                                os.system("pause")
+                column()
+
+
 
 
 def next():
@@ -60,4 +68,4 @@ def next():
 #    main()
 #    x = x+1
 
-#bonus()
+bonus()
