@@ -16,7 +16,6 @@ def main():
         a = a+1
 
 def bonus():
-    while True:
         m = 0
         while m < 21:
             pyautogui.moveTo(380, 665)
@@ -27,30 +26,30 @@ def bonus():
                 #yellow ^^^
                 m = m+1
                 px = (x+45, y)
-                print("1")
+                print(f"{m}")
             else:
                 print(f"else{x}")
                 def column(x):
                     pyautogui.moveTo(x, 136)
-                    x, y = pyautogui.position()
-                    px = pyautogui.pixel(x, y)
-                    if px == (136, 204, 68):
-                        #move down column and keep looking
-                    #else:
-                        #buy building to next level
-                        pyautogui.moveTo(1260,100)
-                        pyautogui.moveTo(220, y)
+                    #136 is top square
+                    k = 1
+                    while k == 1:
                         x, y = pyautogui.position()
                         px = pyautogui.pixel(x, y)
-                        if px == (85, 119, 255):
-                            #blue
-                            pyautogui.click()
-                            #keep trying new columns
-                        if px == (52, 54, 56) or px == (31, 31, 31):
-                            #greys
-                            while px == (52, 54, 56) or px == (31, 31, 31):
-                                #VVV  pause until grey turns blue  VVV
-                                os.system("pause")
+                        if px == (136, 204, 68):
+                            y = y+44
+                        else:
+                            k = 5  
+                            #buy building to next level
+                            pyautogui.moveTo(1087,100)
+                            pyautogui.moveTo(220, y)
+                            x, y = pyautogui.position()
+                            px = pyautogui.pixel(x, y)
+                            if px == (85, 119, 255):
+                                pyautogui.click(25)
+                                #keep trying new columns
+
+ 
                 column()
 
 
