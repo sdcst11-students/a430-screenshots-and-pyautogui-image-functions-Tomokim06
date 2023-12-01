@@ -17,40 +17,38 @@ def main():
 
 def bonus():
         m = 0
+        pyautogui.moveTo(380, 665)
         while m < 21:
-            pyautogui.moveTo(380, 665)
             x, y = pyautogui.position()
             px = pyautogui.pixel(x, y)
 
             if px == (221, 136, 0):
                 #yellow ^^^
                 m = m+1
-                px = (x+45, y)
+                pyautogui.moveTo(x+45, y)
                 print(f"{m}")
             else:
-                print(f"else{x}")
+                print("else")
                 def column(x):
-                    pyautogui.moveTo(x, 136)
+                    pyautogui.moveTo(x, 143)
                     #136 is top square
-                    k = 1
-                    while k == 1:
+                    k = 0
+                    while k < 12:
                         x, y = pyautogui.position()
                         px = pyautogui.pixel(x, y)
+
                         if px == (136, 204, 68):
-                            y = y+44
+                            #green ^^^
+                            k = k+1
+                            pyautogui.moveTo(x, y+44)
                         else:
-                            k = 5  
+                            x, y = pyautogui.position()
                             #buy building to next level
                             pyautogui.moveTo(1087,100)
+                            pyautogui.click(1)
                             pyautogui.moveTo(220, y)
-                            x, y = pyautogui.position()
-                            px = pyautogui.pixel(x, y)
-                            if px == (85, 119, 255):
-                                pyautogui.click(25)
-                                #keep trying new columns
-
- 
-                column()
+                            pyautogui.doubleClick(20)
+                    column()
 
 
 
