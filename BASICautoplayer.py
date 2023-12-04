@@ -1,6 +1,5 @@
-import pyautogui
-import time
-import os
+import pyautogui, time
+pyautogui.PAUSE = 0.0001
 
 def main():
     x = 200
@@ -9,7 +8,7 @@ def main():
     pyautogui.click()
 
     a = 1
-    while a < 12:
+    while a < 13:
         pyautogui.moveTo(x,y+44)
         pyautogui.click()
         y = y+44
@@ -17,11 +16,10 @@ def main():
 
 def column():
     x, y = pyautogui.position()
-    print(x, y)
     pyautogui.moveTo(x, 143)
     #143 is top square
     k = 0
-    while k < 12:
+    while k < 13:
         x, y = pyautogui.position()
         px = pyautogui.pixel(x, y)
 
@@ -32,17 +30,19 @@ def column():
         else:
             k = 99
             x, y = pyautogui.position()
+            px = pyautogui.pixel(x, y)
             #buy building to next level
             pyautogui.moveTo(1087,100)
             pyautogui.click()
             pyautogui.moveTo(220, y)
-            for i in range(20):
+            #Buy new buildings until color is green and not grey(34, 34, 34)
+            print(px)
+            while px == (34, 34, 34):
                 pyautogui.click()
-
 
 def bonus():
         m = 0
-        pyautogui.moveTo(380, 665)
+        pyautogui.moveTo(380, 710)
         while m < 21:
             x, y = pyautogui.position()
             px = pyautogui.pixel(x, y)
@@ -51,21 +51,17 @@ def bonus():
                 #yellow ^^^
                 m = m+1
                 pyautogui.moveTo(x+45, y)
-                print(f"{m}")
             else:
                 m = 999
                 column()
-
-
 
 def next():
     pyautogui.moveTo(1260, 100)
     pyautogui.click()
 
 
-
-
-
-
 if __name__ == '__main__':
-    bonus()
+    start_time = time.time()
+    for i in range (1):
+        bonus()
+    print("--- %s seconds ---" % (time.time() - start_time))
