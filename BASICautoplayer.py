@@ -36,9 +36,11 @@ def column():
             pyautogui.click()
             pyautogui.moveTo(220, y)
             #Buy new buildings until color is green and not grey(34, 34, 34)
-            print(px)
             while px == (34, 34, 34):
                 pyautogui.click()
+                px = pyautogui.pixel (x,y)
+                if px != (34, 34, 34):
+                    break
 
 def bonus():
         m = 0
@@ -48,7 +50,7 @@ def bonus():
             px = pyautogui.pixel(x, y)
 
             if px == (221, 136, 0):
-                #yellow ^^^
+                #orange ^^^
                 m = m+1
                 pyautogui.moveTo(x+45, y)
             else:
@@ -60,9 +62,13 @@ def next():
     pyautogui.click()
 
 def main():
-    for i in range(5):
-        idle()
-    bonus()
+    while True:
+        for i in range(5):
+            idle()
+        if keyboard.is_pressed("q"):
+            quit()
+        bonus()
+        time.sleep(10)
 
 
 #if __name__ == '__main__':
@@ -72,7 +78,5 @@ def main():
 #    print("--- %s seconds ---" % (time.time() - start_time))
 
 if __name__ == '__main__':
-        while not keyboard.is_pressed("q"):
-            main()
-        if keyboard.is_pressed("q"):
-            quit()
+    main()
+        
