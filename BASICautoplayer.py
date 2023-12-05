@@ -64,11 +64,7 @@ def main():
         for i in range(5):
             idle()
         bonus()
-        input("Press to stop")
-        if input == "q":
-            quit()
-        else:
-            quit()
+
 
 #if __name__ == '__main__':
 #    start_time = time.time()
@@ -77,4 +73,8 @@ def main():
 #    print("--- %s seconds ---" % (time.time() - start_time))
 
 if __name__ == '__main__':
-    main()
+    try:
+        while True:
+            main()
+    except KeyboardInterrupt:
+            pass
