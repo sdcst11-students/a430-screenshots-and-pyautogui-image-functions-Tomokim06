@@ -70,8 +70,11 @@ def main():
         else:
             quit()
 
+#if __name__ == '__main__':
+#    start_time = time.time()
+#    for i in range (1):
+#        bonus()
+#    print("--- %s seconds ---" % (time.time() - start_time))
+
 if __name__ == '__main__':
-    start_time = time.time()
-    for i in range (1):
-        bonus()
-    print("--- %s seconds ---" % (time.time() - start_time))
+    main()
