@@ -1,7 +1,7 @@
 import pyautogui, time
 pyautogui.PAUSE = 0.0001
 
-def main():
+def idle():
     x = 200
     y = 150
     pyautogui.moveTo(x, y)
@@ -59,6 +59,16 @@ def next():
     pyautogui.moveTo(1260, 100)
     pyautogui.click()
 
+def main():
+    while True:
+        for i in range(5):
+            idle()
+        bonus()
+        input("Press to stop")
+        if input == "q":
+            quit()
+        else:
+            quit()
 
 if __name__ == '__main__':
     start_time = time.time()
