@@ -1,4 +1,4 @@
-import pyautogui, time
+import pyautogui, time, keyboard
 pyautogui.PAUSE = 0.0001
 
 def idle():
@@ -60,10 +60,9 @@ def next():
     pyautogui.click()
 
 def main():
-    while True:
-        for i in range(5):
-            idle()
-        bonus()
+    for i in range(5):
+        idle()
+    bonus()
 
 
 #if __name__ == '__main__':
@@ -73,7 +72,7 @@ def main():
 #    print("--- %s seconds ---" % (time.time() - start_time))
 
 if __name__ == '__main__':
-    try:
+    while True:
         main()
-    except KeyboardInterrupt:
+        if keyboard.is_pressed("q"):
             quit()
