@@ -72,7 +72,7 @@ def main():
 #    print("--- %s seconds ---" % (time.time() - start_time))
 
 if __name__ == '__main__':
-    while True:
-        main()
+        while not keyboard.is_pressed("q"):
+            main()
         if keyboard.is_pressed("q"):
             quit()
