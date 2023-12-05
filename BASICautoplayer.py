@@ -74,7 +74,6 @@ def main():
 
 if __name__ == '__main__':
     try:
-        while True:
-            main()
+        main()
     except KeyboardInterrupt:
-            pass
+            quit()
