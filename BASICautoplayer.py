@@ -2,6 +2,8 @@ import pyautogui, time, keyboard
 pyautogui.PAUSE = 0.0001
 
 def idle():
+    if keyboard.is_pressed("q"):
+        quit()
     x = 200
     y = 150
     pyautogui.moveTo(x, y)
@@ -17,7 +19,7 @@ def idle():
 def column():
     x, y = pyautogui.position()
     pyautogui.moveTo(x, 143)
-    #143 is top square
+    #y=143 is top square
     k = 0
     while k < 13:
         x, y = pyautogui.position()
@@ -37,6 +39,8 @@ def column():
             pyautogui.moveTo(220, y)
             #Buy new buildings until color is green and not grey(34, 34, 34)
             while px == (34, 34, 34):
+                if keyboard.is_pressed("q"):
+                    quit()
                 pyautogui.click()
                 px = pyautogui.pixel (x,y)
                 if px != (34, 34, 34):
@@ -48,7 +52,6 @@ def bonus():
         while m < 21:
             x, y = pyautogui.position()
             px = pyautogui.pixel(x, y)
-
             if px == (221, 136, 0):
                 #orange ^^^
                 m = m+1
@@ -57,18 +60,16 @@ def bonus():
                 m = 999
                 column()
 
-def next():
-    pyautogui.moveTo(1260, 100)
-    pyautogui.click()
+#def next():
+#    pyautogui.moveTo(1260, 100)
+#    pyautogui.click()
 
 def main():
     while True:
-        for i in range(5):
+        for i in range(50):
             idle()
-        if keyboard.is_pressed("q"):
-            quit()
         bonus()
-        time.sleep(10)
+        time.sleep(2)
 
 
 #if __name__ == '__main__':
