@@ -28,7 +28,7 @@ def column():
         if px == (136, 204, 68):
             #green ^^^
             k = k+1
-            pyautogui.moveTo(x, y+45)
+            pyautogui.moveTo(x, y+44)
         else:
             #print(x,y)
             #quit()
@@ -71,7 +71,6 @@ def main():
         for i in range(5):
             idle()
         bonus()
-        time.sleep(2)
 
 def timer():
     if __name__ == '__main__':
