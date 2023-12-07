@@ -28,8 +28,10 @@ def column():
         if px == (136, 204, 68):
             #green ^^^
             k = k+1
-            pyautogui.moveTo(x, y+44)
+            pyautogui.moveTo(x, y+45)
         else:
+            #print(x,y)
+            #quit()
             k = 99
             x, y = pyautogui.position()
             px = pyautogui.pixel(x, y)
@@ -66,17 +68,17 @@ def bonus():
 
 def main():
     while True:
-        for i in range(50):
+        for i in range(5):
             idle()
         bonus()
         time.sleep(2)
 
-
-#if __name__ == '__main__':
-#    start_time = time.time()
-#    for i in range (1):
-#        bonus()
-#    print("--- %s seconds ---" % (time.time() - start_time))
+def timer():
+    if __name__ == '__main__':
+        start_time = time.time()
+        for i in range (1):
+            idle()
+        print("--- %s seconds ---" % (time.time() - start_time))
 
 if __name__ == '__main__':
     main()
